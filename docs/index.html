@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 
 	<title>mgn-scroll-nav.js</title>
-    <meta name="description" content="Implement scroll position with linked navigation. If scroll position intrudes the specified content area, assign class="active".">
+    <meta name="description" content="Implement scroll position with linked navigation. If scroll position intrudes the specified content area, assign class='active'.">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 	<style>
 		body { background: #FFF; margin: 0px; overflow: hidden; overflow: auto;}
@@ -23,6 +23,20 @@
 		main pre mark { background: rgba(236,69,0,0.2); font-weight: bold; display: inline-block; padding: 0 3px; }
 		footer { padding: 20px; background: #F7F7F7; }
 		footer p { font-size: 0.75em; }
+
+		.space { height: 500px; }
+		.f-box { height: 500px; }
+		.f-box.active:before { content: "Active !!!"; }
+		#box1, a[href="#box1"] { background: #E1CE7A; }
+		#box2, a[href="#box2"] { background: #FBFFB9; }
+		#box3, a[href="#box3"] { background: #FDD692; }
+		#box4, a[href="#box4"] { background: #EC7357; }
+		#box5, a[href="#box5"] { background: #754F44; }
+
+		.j-scrollnav { position: fixed; right: 0; top: 50%; transform: translateY(-50%); }
+		.j-scrollnav .icon { display: block; width: 120px; line-height: 30px; text-align: center; }
+		.j-scrollnav .icon a { text-decoration: none; color: black; display: block; }
+		.j-scrollnav .icon.active a { background: #000; color: #FFF; }
 	</style>
 
 </head>
@@ -34,15 +48,47 @@
 		<p>Implement scroll position with linked navigation. If scroll position intrudes the specified content area, assign class="active".</p>
 		<p><a href="https://github.com/frontend-isobar-jp/mgn-scroll-nav">https://github.com/frontend-isobar-jp/mgn-scroll-nav</a></p>
 
-		<section>
-			<h2>Default</h2>
 <div><pre data-type="javascript"><code>
+new mgnScrollNav(
+    <mark>".j-scrollnav",</mark>
+    {
+        boxElm: '.f-box',
+        activeElm: '.icon',
+        posFix:  '50%',
+        edgeJudge: false
+
+    }
+);
 </code></pre></div>
 <div><pre data-type="HTML"><code>
+&lt;div id="box1" class="f-box"&gt;&lt;/div&gt;
+&lt;div id="box2" class="f-box"&gt;&lt;/div&gt;
+&lt;div id="box3" class="f-box"&gt;&lt;/div&gt;
+&lt;div id="box4" class="f-box"&gt;&lt;/div&gt;
+&lt;div id="box5" class="f-box"&gt;&lt;/div&gt;
+
+&lt;nav class="<mark>j-scrollnav</mark>"&gt;
+    &lt;span class="icon"&gt;&lt;a&gt;コンテンツ1&lt;/a&gt;&lt;/span&gt;
+    &lt;span class="icon"&gt;&lt;a&gt;コンテンツ2&lt;/a&gt;&lt;/span&gt;
+    &lt;span class="icon"&gt;&lt;a&gt;コンテンツ3&lt;/a&gt;&lt;/span&gt;
+    &lt;span class="icon"&gt;&lt;a&gt;コンテンツ4&lt;/a&gt;&lt;/span&gt;
+    &lt;span class="icon"&gt;&lt;a&gt;コンテンツ5&lt;/a&gt;&lt;/span&gt;
+&lt;/nav&gt;
 </code></pre></div>
 
+	<div id="box1" class="f-box"></div>
+	<div id="box2" class="f-box"></div>
+	<div id="box3" class="f-box"></div>
+	<div id="box4" class="f-box"></div>
+	<div id="box5" class="f-box"></div>
 
-		</section>
+	<nav class="j-scrollnav">
+		<span class="icon"><a>コンテンツ1</a></span>
+		<span class="icon"><a>コンテンツ2</a></span>
+		<span class="icon"><a>コンテンツ3</a></span>
+		<span class="icon"><a>コンテンツ4</a></span>
+		<span class="icon"><a>コンテンツ5</a></span>
+	</nav>
 
 	</main>
 
