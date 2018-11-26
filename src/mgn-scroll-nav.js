@@ -66,8 +66,12 @@ License: Dentsu Isobar All Rights Reserved.
 
         this.Ready();
 
-        window.addEventListener( 'resize', () => { this.Ready() } );
-        window.addEventListener( 'scroll', () => { this.Ready() } );
+        window.addEventListener( 'resize', function(){
+            this.Ready()
+        });
+        window.addEventListener( 'scroll', function(){
+            this.Ready()
+        });
 
     };
 
